@@ -1,6 +1,8 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
+import Button from '@mui/material/Button';
+import TextField from '@mui/material/TextField';
 
 import './loginPage.css'
 
@@ -17,7 +19,10 @@ export default function LoginPage() {
   function signIn(e) {
     e.preventDefault()
     axios.post('https://reqres.in/api/login', userCredentials)
-      .then((success) => navigate(`/${success.data}`))
+      .then((success) => {
+        localStorage.setItem('token', success.data.token)
+        navigate(`/${success.data}`)
+      })
       .catch((error) => setErrormsg(error.response.data.error))
   }
 
@@ -28,13 +33,13 @@ export default function LoginPage() {
           <form>
             <label>Email</label>
             <br />
-            <input type='email' name='email' onChange={saveCredentials} placeholder='enter email' required />
+            <TextField required type='email' name='email' onChange={saveCredentials} placeholder='enter email' label="email" />
             <br /><br />
             <label>Password</label>
             <br />
-            <input type='password' name='password' onChange={saveCredentials} placeholder='enter password' required />
+            <TextField required type='password' name='password' onChange={saveCredentials} placeholder='enter password' label="password" />
             <br /><br />
-            <button type="submit" onClick={(e) => signIn(e)}>Login</button>
+            <Button variant="contained" onClick={(e) => signIn(e)}>Login</Button> <br /> <br />
           </form>
           <p>{errormsg}</p>
         </div>
