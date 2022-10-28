@@ -2,6 +2,8 @@ import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import Button from '@mui/material/Button';
+// import { LogoutIcon } from "@mui/icons-material";
+import LogoutIcon from '@mui/icons-material/Logout';
 
 import './loginPage.css'
 
@@ -10,7 +12,6 @@ export default function UsersPage() {
   const [page, setPage] = useState(true);
 
   const navigate = useNavigate()
-
   function loadData() {
     axios.get('https://reqres.in/api/login')
       .then((success) => setUserDatas(success.data))
@@ -45,8 +46,8 @@ export default function UsersPage() {
 
   return (
     <div>
-      <div id="btn">
-        <Button variant="contained" onClick={signOut}>Logout</Button> <br /> <br />
+      <div id="nav-bar">
+        <Button variant="contained" size="small" onClick={signOut} id='btn'><LogoutIcon/> Logout</Button> <br /> <br />
       </div>
       {
         (userDatas.data)?.map((entities, index) => {
