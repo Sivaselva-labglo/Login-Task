@@ -6,19 +6,19 @@ import UsersPage from './usersPage';
 import PrivateRouter from './PrivateRouter';
 
 function App() {
-    return (
-        <Router>
-            <Routes>
-                <Route exact path='/' element={<LoginPage />} />
-                <Route exact path='/:userspage' element={
-                    <PrivateRouter>
-                        <UsersPage />
-                    </PrivateRouter>
-                } />
-            </Routes>
-        </Router>
+  return (
+    <Router>
+      <Routes>
+        <Route exact path='/' element={<LoginPage />} />
+        <Route exact path='/:userspage' element={
+          <PrivateRouter>
+            <UsersPage />
+          </PrivateRouter>
+        } />
+      </Routes>
+    </Router>
 
-    );
+  );
 }
 
 export default App;
