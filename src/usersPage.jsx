@@ -7,13 +7,11 @@ import LogoutIcon from '@mui/icons-material/Logout';
 
 import './loginPage.css'
 
-export default function UsersPage({detail,setDetails}) {
+export default function UsersPage() {
   const [userDatas, setUserDatas] = useState({});
   const [page, setPage] = useState(true);
 
   const navigate = useNavigate()
-    console.log('Detail ', detail)
-    console.log('setDetails ', setDetails)
   function loadData() {
     axios.get('https://reqres.in/api/login')
       .then((success) => setUserDatas(success.data))
