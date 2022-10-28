@@ -21,7 +21,7 @@ export default function LoginPage() {
     axios.post('https://reqres.in/api/login', userCredentials)
       .then((success) => {
         localStorage.setItem('token', success.data.token)
-        navigate(`/${success.data}`)
+        navigate(`/${userCredentials.email}`)
       })
       .catch((error) => setErrormsg(error.response.data.error))
   }

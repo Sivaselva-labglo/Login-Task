@@ -22,12 +22,12 @@
 }
 
 #nav-bar {
-    background-color: rgb(2, 42, 49);
-    /* background-color: whitesmoke; */
-    color: white;
-    /* display: flex; */
-    height: 80px;
-    justify-content: space-between
+  background-color: rgb(2, 42, 49);
+  /* background-color: whitesmoke; */
+  color: white;
+  display: flex;
+  height: 80px;
+  justify-content: space-between
 }
 
 #entity {
@@ -36,8 +36,8 @@
 }
 
 #btn {
-    margin-left: 1700px;
-    height: 35px;
-    margin-top: 20px;
-    margin-bottom: 20px;
+  margin-left: 1700px;
+  height: 35px;
+  margin-top: 20px;
+  margin-bottom: 20px;
 }
